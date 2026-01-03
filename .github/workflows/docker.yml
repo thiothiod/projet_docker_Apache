@@ -29,6 +29,6 @@ jobs:
     
     - name: Build and push
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/mon-projet-php:$VERSION ./php-docker/
+        docker build --build-arg VERSION=$VERSION -t ${{ secrets.DOCKER_USERNAME }}/mon-projet-php:$VERSION ./php-docker/
         docker push ${{ secrets.DOCKER_USERNAME }}/mon-projet-php:$VERSION
 
